@@ -4,10 +4,11 @@ package consumer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class ConsumerExample {
     public static void main(String[] args) {
-        List<Integer> numerosList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        List<Integer> numerosList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 200);
 
         //Criando o Consumer manualmente
         Consumer<Integer> imprimirPares = numero -> {
@@ -16,11 +17,7 @@ public class ConsumerExample {
             }
         };
 
-        numerosList.forEach(n -> {
-                if(n % 2 == 0){
-                    System.out.println(n);
-                }
-            }
-        );
+        //numerosList.stream().filter(n -> n % 2 == 0)
+        numerosList.forEach(imprimirPares);
     }
 }
